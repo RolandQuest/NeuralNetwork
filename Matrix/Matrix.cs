@@ -164,5 +164,21 @@ namespace Roland.MatrixMath
             return m;
         }
 
+        /// <summary>
+        /// Prints the matrix to console.
+        /// </summary>
+        public void PrintToConsole()
+        {
+            for(int row = 0; row < RowLength; row++)
+            {
+                Console.Write("{0:F3}", _matrix[row, 0]);
+                for(int column = 1; column < ColumnLength; column++)
+                {
+                    Console.Write("\t");
+                    Console.Write("{0:F3}", _matrix[row, column]);
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }

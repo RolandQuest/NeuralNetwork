@@ -55,6 +55,25 @@ namespace Roland.NeuralNetwork
         }
 
         /// <summary>
+        /// The total error between the two vectors.
+        /// </summary>
+        /// <param name="result">A vector of element values.</param>
+        /// <param name="expected">A vector of expected values.</param>
+        /// <returns></returns>
+        public double TotalError(Vector result, Vector expected)
+        {
+            Vector errors = Error(result, expected);
+
+            double totalError = 0.0;
+            for(int i = 0; i < errors.Dimension; i++)
+            {
+                totalError += errors[i];
+            }
+
+            return totalError;
+        }
+
+        /// <summary>
         /// Finds the change in error with respect to the result value for all elements.
         /// </summary>
         /// <param name="result">A vector of element values.</param>

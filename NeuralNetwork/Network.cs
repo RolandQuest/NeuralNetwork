@@ -13,6 +13,17 @@ namespace Roland.NeuralNetwork
         private List<LayerWeighting> _layerConnections = new List<LayerWeighting>();
 
         /// <summary>
+        /// The number of layers in the network including input and output.
+        /// </summary>
+        public int Depth
+        {
+            get
+            {
+                return _layers.Count;
+            }
+        }
+
+        /// <summary>
         /// Basic constructor. Does a lot of assuming on types.
         /// </summary>
         /// <param name="r">A Random object used to randomize weights.</param>
@@ -105,6 +116,15 @@ namespace Roland.NeuralNetwork
         {
             _layers[0].SetInputValues(vals);
         }
-
+        
+        /// <summary>
+        /// Prints the weights of a layer to the next layer.
+        /// The last layer has no such weights.
+        /// </summary>
+        /// <param name="layerIndex">The index of the layer.</param>
+        public void PrintLayerWeightsToConsole(int layerIndex)
+        {
+            _layerConnections[layerIndex].PrintWeightsToConsole();
+        }
     }
 }
